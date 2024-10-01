@@ -58,7 +58,8 @@ static void MX_USART3_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-char msg[] = "hello, world!\r\n";
+char msg[] = "hello, world! abcdefgheijklmnoptkqjfqlkjfqlkdfjqsldkjqsdlkqsjdqlsk qfqjkqf qfq sfqsf \r\n";
+char done[] = "done\r\n";
 /* USER CODE END 0 */
 
 /**
@@ -103,7 +104,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	HAL_UART_Transmit_IT(&huart3, msg, sizeof(msg));
+	HAL_UART_Transmit_IT(&huart3, msg, sizeof(msg));
+	HAL_UART_Transmit_IT(&huart3, msg, sizeof(msg));
+	HAL_UART_Transmit_IT(&huart3, msg, sizeof(msg));
+	HAL_UART_Transmit_IT(&huart3, msg, sizeof(msg));
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -204,7 +209,10 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-voir HAL_UAR
+void HAL_UART_TxCpltCallback (UART_HandleTypeDef *huart)
+{
+	HAL_UART_Transmit(&huart3, done, sizeof(done), 0xFFFF);
+}
 
 /* USER CODE END 4 */
 
