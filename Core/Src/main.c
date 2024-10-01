@@ -103,7 +103,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_UART_Transmit(&huart3, msg, sizeof(msg), 0xFFFF);
 
     /* USER CODE BEGIN 3 */
   }
@@ -204,6 +203,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+voir HAL_UAR
 
 /* USER CODE END 4 */
 
